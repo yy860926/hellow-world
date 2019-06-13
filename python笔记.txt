@@ -1,0 +1,78 @@
+列表函数（传地址）		切片索引可以超标
+	末尾追加 	a.append(data)
+	插入 		a.insert(index.data)	插入的位置是index的前面
+	删除指定位置		del(index)
+	删除指定的值		a.remove(data)
+	弹出最后一个元素	b = a.pop()
+	清空列表（地址还在）	a.clear()
+	原地翻转		a.reverse()
+	原地扩展		a.extend(b)
+	统计x个数		a.count(x)
+	浅拷贝		b = a.copy()
+浅拷贝和深拷贝的区别：
+	如果有内嵌列表，浅拷贝的内嵌列表和原内嵌列表id一致
+				   深拷贝内嵌列表和原内嵌列表id不一致
+元组函数（不可更改的列表）有序
+	创建只有一个元素的元组	t = (1,) 也可以不加括号	t = t(list)
+	元组相加 	新创建一个对象
+	元组相乘		新创建一个对象
+	获取长度		t.len()
+	最大值最小值	t.min()	t.max()
+	统计x个数	t.count(x)
+	查找x在元组中位置	t.index(x) 		如果有多个，返回第一个
+
+	元组变量交换法	a,b = b,a
+集合 
+	定义：s = set()	或者	s = {1,2,3,4,....} {}里一定要有值
+	特征：无序，所以无法使用索引、分片
+		 具有唯一性，可用来排重
+		 内部只能放置在 可哈希数据   集合本身不可哈希 
+		 集合在初始化过程中，自动过滤掉重复的元素
+	集合生成式：
+		sss = {i for i in s if i % 2 == 0}   
+		## sss = s集合中偶数的部分
+	len,max,min  和其他函数一样
+
+	生成一个集合		s = set(list)
+	添加元素x		s.add(x)
+	原地清空 		s.clear()
+	拷贝				s2 = s.copy()
+	删除x（如果没有x，报错）	s.remove(x)
+	删除x（如果没有x，不报错）	s.discard(x)
+	随机移除			s.pop()
+
+	交集		intersection
+	差集		difference
+	并集 	union
+	检查一个集合是否为另一个集合的子集		issubset
+	检查一个集合是否为另一个集合的超集		issuperset
+
+	冰冻集合		frozenset
+		冰冻集合就是不可以进行任何修改的集合
+		s = frozenset()
+
+字典 	
+	创建   d = {}	或   d = dict()	 
+	 	   d = {"one":1,"two":2,...}	d = dcit("one":1,"two":2,.)
+	 	   d = dict(one=1,two=2,...)	关键字创建
+	 	   d = dict([("one",1),("two",2)...])
+	特征： 无序，没有分片和索引
+		   每个数据都有k，v。 key 必须是可哈希的，比如：int，float,tuple
+		   		但是，list，set，dict不行
+	访问数据：
+		d = {"one":1,"two":2,"three":3}
+		print(d["one"])		##中括号内是键值
+	
+	删除某个键值：		del d["one"]
+	成员检测：  只能检测key
+	字典生成式过滤出偶数：dd={k:v for k,v in d.items() if v % 2 == 0}
+	相关函数：
+		len max min dict
+		str(dict):返回字典的字符串格式
+		清空clear
+		d.items()：返回字典的键值对的元组格式
+		d.keys():返回key
+		d.values():返回values 
+		get:根据指定键返回相应值，好处是可以设置默认值，没有该键，返回non		e，不报错 
+			d.get("one",1000) ##表示如果没有one，则设置默认值1000
+		formkeys:使用指定序列作为键，使用一个值作为所有键的值。
